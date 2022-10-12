@@ -1,0 +1,1 @@
+CREATE DATABASE couch_potato_db;

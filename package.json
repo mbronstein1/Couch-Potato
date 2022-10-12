@@ -1,0 +1,31 @@
+{
+  "name": "couch-potato",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbronstein1/Couch-Potato.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbronstein1/Couch-Potato/issues"
+  },
+  "homepage": "https://github.com/mbronstein1/Couch-Potato#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "sequelize": "^6.25.0",
+    "bcrypt": "^5.0.0",
+    "connect-session-sequelize": "^7.0.4",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.2.5"
+  }
+}
