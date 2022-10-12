@@ -11,46 +11,70 @@ Movie.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        series_title: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        genre: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        released_year: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        overview: {
-            type: DataTypes.TEXT,
-            allowNull: false,
-        },
-        director: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-        poster_link: {
+        Poster_Link: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 isUrl: true,
             },
         },
-        star1: {
+        Series_Title: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        star2: {
+        Released_Year: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        Certificate: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        star3: {
+        Runtime: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        star4: {
+        Genre: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        IMDB_Rating: {
+            type: DataTypes.NUMBER,
+            allowNull: false,
+        },
+        Overview: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        Meta_score: {
+            type: DataTypes.NUMBER,
+            allowNull: false,
+        },
+        Director: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        Star1:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        Star2:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        Star3:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        Star4:{
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        No_of_Votes: {
+            type: DataTypes.NUMBER,
+            allowNull: false,
+        },
+        Gross: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -59,8 +83,8 @@ Movie.init(
         sequelize,
         timestamps: false,
         freezeTableName: true,
-        underscored: true,
-        modelName: 'movie',
+        underscored: false,
+        modelName: 'movies',
     }
 );
 
