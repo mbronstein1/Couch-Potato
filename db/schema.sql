@@ -1,1 +1,1 @@
-CREATE DATABASE couch-potato;
+CREATE DATABASE couch_potato_db;
