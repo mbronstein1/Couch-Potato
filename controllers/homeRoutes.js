@@ -16,11 +16,17 @@ router.get('/collection', async (req, res) => {
     console.log(req.session.user_id)
     try {
         const dbUserData = await User.findAll({
+            attributes: {
+                exclude: ['password', 'email']
+            },
             where: {
                 id: req.session.user_id
             },
             include: [{
-                model: Movie, through: Favorite, as: 'favorite_movies'
+                model: Movie, through: Favorite, as: 'favorite_movies',
+                attributes: {
+                    exclude: ['Certificate', 'Meta_score', 'No_of_Votes', 'Gross']
+                }
             }]
         });
         res.send(dbUserData);
