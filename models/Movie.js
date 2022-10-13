@@ -12,71 +12,71 @@ Movie.init(
             autoIncrement: true,
         },
         Poster_Link: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
             validate: {
                 isUrl: true,
             },
         },
         Series_Title: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Released_Year: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            defaultValue: 0
         },
         Certificate: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Runtime: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Genre: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         IMDB_Rating: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
+            type: DataTypes.DECIMAL(10,2),
+            defaultValue: 0
         },
         Overview: {
             type: DataTypes.TEXT,
-            allowNull: false,
+            defaultValue: "xxxxx"
         },
         Meta_score: {
-            type: DataTypes.DECIMAL,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxx"
         },
         Director: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Star1:{
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
+            defaultValue: "xxxxx"
         },
         Star2:{
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Star3:{
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         Star4:{
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
         No_of_Votes: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: 0
         },
         Gross: {
-            type: DataTypes.STRING,
-            allowNull: false,
+            type: DataTypes.TEXT,
+            defaultValue: "xxxxx"
         },
     },
     {
