@@ -10,7 +10,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
@@ -25,21 +25,23 @@
                 <ul class="uk-navbar-nav">
                     <li><a href="/">Home</a></li>
                     <li><a href="">Browse</a></li>
-                    <!-- {{#if loggedIn}} -->
-                    <!-- <li><a href="/"></a>Logout</li> -->
-                    <!-- {{else}} -->
+                    {{#if loggedIn}}
+                    <li><a href="/" id="logout">Logout</a></li>
+                    {{else}}
                     <li><a href="/login">Login</a></li>
-                    <!-- {{/if}} -->
+                    {{/if}}
                     <li><a href="/my-collection">My Collection</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <!-- {{{body}}} -->
+    {{{body}}}
 
     <footer class="uk-padding uk-flex uk-flex-right uk-flex-middle uk-background-muted uk-width-1-1">
         Created by Matthew Bronstein, David Byrd, Brendon Jiang, and Jared Johnson
     </footer>
+
+    <script src="/js/logout.js"></script>
 </body>
 
 </html>
