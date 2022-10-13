@@ -1,3 +1,5 @@
+const { Movie, Favorite, User } = require('../models');
+
 const router = require('express').Router();
 
 router.get('/', (req, res) => {
@@ -8,6 +10,24 @@ router.get('/login', async (req, res) => {
     res.render('login', {
         loggedIn: req.session.loggedIn
     })
+});
+
+router.get('/collection', async (req, res) => {
+    console.log(req.session.user_id)
+    try {
+        const dbUserData = await User.findAll({
+            where: {
+                id: req.session.user_id
+            },
+            include: [{
+                model: Movie, through: Favorite, as: 'favorite_movies'
+            }]
+        });
+        res.send(dbUserData);
+    }
+    catch (err) {
+        res.status(400).json(err);
+    }
 })
 
 module.exports = router;
