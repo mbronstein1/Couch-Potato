@@ -26,7 +26,7 @@
                     <li><a href="/">Home</a></li>
                     <li><a href="">Browse</a></li>
                     {{#if loggedIn}}
-                    <li><a href="/"></a>Logout</li>
+                    <li><a href="/" id="logout">Logout</a></li>
                     {{else}}
                     <li><a href="/login">Login</a></li>
                     {{/if}}
@@ -40,6 +40,8 @@
     <footer class="uk-padding uk-flex uk-flex-right uk-flex-middle uk-background-muted uk-width-1-1">
         Created by Matthew Bronstein, David Byrd, Brendon Jiang, and Jared Johnson
     </footer>
+
+    <script src="/js/logout.js"></script>
 </body>
 
 </html>
