@@ -1,0 +1,16 @@
+<main class="uk-container">
+    {{#each movies}}
+    <div class="uk-child-width-1-4@m" uk-grid>
+        <div>
+            <div class="uk-card uk-card-default">
+                <div class="uk-card-media-top">
+                    <img src="{{this.Poster_Link}}" width="1000" alt="movie poster">
+                </div>
+                <div class="uk-card-body">
+                    <h3 class="uk-card-title">{{this.Series_Title}}></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</main>
