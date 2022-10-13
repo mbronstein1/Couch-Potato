@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{!-- fontAwesome CDN --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{!-- UIkit CSS --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+    {{!-- UIkit JS --}}
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+    <title>Couch Potato</title>
+</head>
+
+<body>
+    <header class="uk-container uk-flex">
+        <h1 class="uk-margin-auto-right">Couch Potato</h1>
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="">Browse</a></li>
+                    {{!-- {{#if loggedIn}} --}}
+                    {{!-- <li><a href="/"></a>Logout</li> --}}
+                    {{!-- {{else}} --}}
+                    <li><a href="/login">Login</a></li>
+                    {{!-- {{/if}} --}}
+                    <li><a href="/my-collection">My Collection</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    {{!-- {{{body}}} --}}
+</body>
+
+</html>
