@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/css/uikit.min.css" />
+    <title>Login Test</title>
+</head>
+
+<body>
+    <div class="uk-grid uk-flex-center">
+
+        <div class="uk-card">
+
+            <h2>Login</h2>
+
+            <form class="uk-form-stacked login-form">
+
+                <div class="form-group">
+                    <label for="email-login">Email:</label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input class="uk-input" type="text" id="email-login" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password-login">Password:</label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input class="uk-input" type="password" id="password-login" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="uk-button uk-button-primary" type="submit">Login</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="uk-card">
+
+            <h2>Signup</h2>
+
+            <form class="uk-form-stacked signup-form">
+
+                <div class="form-group">
+                    <label for="email-signup">Email:</label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: user"></span>
+                        <input class="uk-input" type="text" id="email-signup" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password-signup">Password:</label>
+                    <div class="uk-inline">
+                        <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                        <input class="uk-input" type="password" id="password-signup" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button class="uk-button uk-button-primary" type="submit">Signup</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    
+    <script src="../public/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+</body>
+
+</html>
