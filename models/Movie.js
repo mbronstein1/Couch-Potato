@@ -39,7 +39,7 @@ Movie.init(
             allowNull: false,
         },
         IMDB_Rating: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.DECIMAL,
             allowNull: false,
         },
         Overview: {
@@ -47,7 +47,7 @@ Movie.init(
             allowNull: false,
         },
         Meta_score: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.DECIMAL,
             allowNull: false,
         },
         Director: {
@@ -71,7 +71,7 @@ Movie.init(
             allowNull: false,
         },
         No_of_Votes: {
-            type: DataTypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: false,
         },
         Gross: {
