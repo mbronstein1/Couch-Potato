@@ -1,5 +1,6 @@
 const { Movie } = require('../models');
 const { Op } = require("sequelize");
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 // route /browse
@@ -20,18 +21,15 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/:genre', async (req, res) => {
+router.get('/:genre', withAuth, async (req, res) => {
     try {
-        if(!req.session.loggedIn) {
-            res.render('login')
-        }
-        else{
             const genreResultsDB = await Movie.findAll({
                 where: {Genre: {[Op.like]: `%${req.params.genre}%`}}
             });
             if(genreResultsDB) {
                 const genreResults = genreResultsDB.map((result) => result.get({plain:true}));
                 var movies = genreResults.map(result => ({ value: result, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
+                console.log(movies);
                 res.status(200).render('results', {movies})
                 // res.status(200).json(movies)
             }
@@ -39,7 +37,6 @@ router.get('/:genre', async (req, res) => {
                 res.status(404).json({message: "No matching results"})
             }
         }
-    }
     catch(e) {
         res.status(500).json({message: "GET genre failed"})
     }
