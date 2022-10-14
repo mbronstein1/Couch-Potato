@@ -31,11 +31,11 @@
                 <ul class="uk-navbar-nav nav-ul" id="nav-ul">
                     <li><a href="/">Home</a></li>
                     <li><a href="">Browse</a></li>
-                    <!-- {{#if loggedIn}} -->
-                    <!-- <li><a href="/"></a>Logout</li> -->
-                    <!-- {{else}} --}} -->
+                    {{#if loggedIn}}
+                    <li><a href="/"></a>Logout</li>
+                    {{else}}
                     <li><a href="/login">Login</a></li>
-                    <!-- {{/if}} -->
+                    {{/if}}
                     <li><a href="/my-collection">My Collection</a></li>
                 </ul>
             </div>
@@ -50,6 +50,7 @@
     </footer>
 
     <script src="/js/logout.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
