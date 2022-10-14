@@ -40,18 +40,9 @@ const renderMovieResultsPage = async (e) => {
   }
 }
 
-// const renderMovieResultsPage = async (e) => {
-//   e.preventDefault();
-//   const movieNameInputVal = movieNameInputEl.value;
-//   if (movieNameInputVal === "") {
-//     movieNameSearchFormEl.removeChild(movieNameSearchFormEl.lastChild)
-//     let errMessage = document.createElement("p");
-//     errMessage.classList.add('uk-text-danger')
-//     errMessage.textContent = "Please select a movie";
-//     movieNameSearchFormEl.appendChild(errMessage);
-//   } else { 
-//     window.location.replace(`/search?`)
+// const fetchMovies = async () => {
 
+// }
 
 
 
