@@ -1,4 +1,5 @@
 const { Movie, Favorite, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
@@ -12,7 +13,7 @@ router.get('/login', async (req, res) => {
     })
 });
 
-router.get('/collection', async (req, res) => {
+router.get('/collection', withAuth, async (req, res) => {
     console.log(req.session.user_id)
     try {
         const dbUserData = await User.findAll({
