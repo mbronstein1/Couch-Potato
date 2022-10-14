@@ -9,10 +9,8 @@ UIkit.modal(modalEl).hide();
 movieContainerEl.on('click', '.movie-card', function (e) {
     UIkit.modal(modalEl).show();
     target = $(e)[0].currentTarget
-    console.log(target);
 
     const movieTitle = $(target).attr('data-title');
-    console.log("Movie title is:" + movieTitle);
     modalTitleEl.text("");
     modalTitleEl.text(movieTitle);
 
