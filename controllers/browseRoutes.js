@@ -6,13 +6,13 @@ const router = require('express').Router();
 router.get('/', async (req, res) => {
     //get 10 random items
     try {
-        const resultArr = [];
+        const movies = [];
         for(let i = 0; i < 10; i++) {
             let randId = Math.floor((Math.random() * 199) +1) 
             const browse = await Movie.findOne({where: {id: randId}})
-            resultArr.push(browse.get({plain:true}))
+            movies.push(browse.get({plain:true}))
         }
-        res.status(200).render('results', resultArr)
+        res.status(200).render('results', {movies})
         // res.status(200).json(resultArr)
     }
     catch(e) {
@@ -30,9 +30,10 @@ router.get('/:genre', async (req, res) => {
                 where: {Genre: {[Op.like]: `%${req.params.genre}%`}}
             });
             if(genreResultsDB) {
-                const genreResults = genreResultsDB.map((result) => result.get({plain:true}))
-                res.status(200).render('results', genreResults)
-                // res.status(200).json(genreResults)
+                const genreResults = genreResultsDB.map((result) => result.get({plain:true}));
+                var movies = genreResults.map(result => ({ value: result, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
+                res.status(200).render('results', {movies})
+                // res.status(200).json(movies)
             }
             else {
                 res.status(404).json({message: "No matching results"})
