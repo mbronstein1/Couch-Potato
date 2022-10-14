@@ -1,0 +1,3 @@
+UIkit.modal(element).hide();
+
+
