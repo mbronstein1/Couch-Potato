@@ -28,6 +28,28 @@ footer {
     margin-top: 50px;
 }
 
+.home-page-button {
+    background-color: crimson;
+}
+
+.home-page-button:hover {
+    background-color: crimson;
+    filter: saturate(75%);
+}
+
+.home-page-h2-div {
+    margin: 50px;
+    padding: 30px 20px 20px 20px;
+}
+
+.home-page-h3-div {
+    margin: 40px;
+    padding: 25px 20px 20px 20px;
+}
+
+.home-page-button-div {
+    margin-top: 50px;
+}
 
 .hamburger {
     background-color: transparent;
