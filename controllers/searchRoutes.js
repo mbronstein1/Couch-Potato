@@ -17,17 +17,15 @@ router.post('/', withAuth, async (req, res) => {
                 }}
             )
             if(searchResult[0] == null) {
-                res.status(404).json({message: `No results found matching ${req.body.title}`})
+                res.status(404).json({message: `No results found matching ${formattedTitle}`})
             }
             else {
                 const movies = searchResult.map(result => result.get({plain:true}))
-                console.log(movies);
-                res.status(200).render('results', movies)
+                res.status(200).render('results', {movies})
             }
         }
     }
     catch(e) {
-        console.log(e);
         res.status(500).json({message: "Error in search"})
     }
 });
