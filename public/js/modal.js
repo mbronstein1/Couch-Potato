@@ -1,38 +1,52 @@
-const movieContainerEl = $('#movie-conatiner');
+const movieContainerEl = $('#movie-container');
 const modalEl = $('#movie-modal')
 const modalTitleEl = $('#modal-title')
+UIkit.modal(modalEl);
+
 
 UIkit.modal(modalEl).hide();
 
-movieContainerEl.on('click', 'uk-card', function (e) {
-    movieContainerEl.html("");
+movieContainerEl.on('click', '.movie-card', function (e) {
     UIkit.modal(modalEl).show();
+    target = $(e)[0].currentTarget
+    console.log(target);
 
-    var target = e.target;
+    const movieTitle = $(target).attr('data-title');
+    console.log("Movie title is:" + movieTitle);
+    modalTitleEl.text("");
+    modalTitleEl.text(movieTitle);
 
-    const movieTitle = $(target).attr('data-title')
-    modalTitleEl.text(movieTitle)
+    const releaseYear = $(target).attr('data-release');
+    $('#modal-release-date').text("");
+    $('#modal-release-date').text(releaseYear);
 
+    const moviePosterUrl = $(target).attr('data-img');
+    $('#movie-poster').attr("src", moviePosterUrl);
 
+    const overviewText = $(target).attr('data-overview');
+    $('#overview-text-container').text("");
+    $('#overview-text-container').text(overviewText);
 
-    // if ($(target).attr('data-img-url')) {
-    //     var images = $(target).attr('data-img-url');
-    //     var imageStore = $('<img>');
-    //     imageStore.attr('src', images);
-    //     $('#modalContent').append(imageStore);
-    //   } else {
-    //     var noImageText = $('<p>');
-    //     noImageText.text("Sorry! This artwork has no image to display!")
-    //     $('#modalContent').append(noImageText);
-    //   }
-    
-    //   var modalUrl = $(target).attr('data-art-url');
-    //   var modalUrlEl = $('<a>');
-    //   modalUrlEl.attr('href', modalUrl);
-    //   modalUrlEl.attr('target', '_blank');
-    //   modalUrlEl.text("View more info here!");
-    
-    //   $('#modalContent').append(modalUrlEl)
-    //   var modalHeader = $(target).attr('data-artworkName');
-    //   $('#modalHeader').text(modalHeader);
+    const genreText = $(target).attr('data-genre');
+    $('#genre-container').text("");
+    $('#genre-container').text(genreText);
+
+    const directorText = $(target).attr('data-director');
+    $('#director-container').text("");
+    $('#director-container').text(directorText);
+
+    const castText1 = $(target).attr('data-cast-1');
+    const castText2 = $(target).attr('data-cast-2');
+    const castText3 = $(target).attr('data-cast-3');
+    const castText4 = $(target).attr('data-cast-4');
+    $('#cast-container').text("");
+    $('#cast-container').text(castText1 + "add more cast!");
+
+    const runtimeText = $(target).attr('data-runtime');
+    $('#runtime-container').text("");
+    $('#runtime-container').text(runtimeText);
+
+    const rating = $(target).attr('data-rating');
+    $('#rating-container').text("");
+    $('#rating-container').text(rating);
 })
