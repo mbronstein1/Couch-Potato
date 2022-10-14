@@ -1,19 +1,19 @@
-<main class="uk-container">
-{{< search-aside}}
-    <div class="uk-width-5-6" uk-grid>
-        {{#each movies}}
-        <div class="uk-child-width-1-4@m" uk-grid>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="{{this.Poster_Link}}" width="1000" alt="movie poster">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">{{this.Series_Title}}></h3>
-                    </div>
+<main class="uk-flex uk-container uk-margin-left uk-margin-top main-container">
+    <section class="uk-container uk-width-1-1 uk-margin-medium-left cards-container" uk-height-viewport="offset-top:true">
+        {{< search-aside}}
+        <div class="uk-child-width-1-4@m uk-child-width-1-3@s uk-flex uk-margin uk-flex-center uk-flex-wrap uk-flex-wrap-between uk-text-center">
+            {{#each movies}}
+            <div class="uk-card uk-card-default card-group">
+                <div class="uk-card-media-top  uk-padding-small">
+                    <img src="{{this.Poster_Link}}" width="600" alt="movie poster">
+                </div>
+                <div class="uk-card-body uk-padding-remove-top uk-padding-remove-left uk-padding-remove-right">
+                    <h3 class="uk-card-title uk-heading-medium">
+                        {{this.Series_Title}}
+                    </h3>
                 </div>
             </div>
+            {{/each}}
         </div>
-        {{/each}}
-    </div>
+    </section>
 </main>
