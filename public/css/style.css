@@ -1,10 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+.card-group {
+    margin: 15px;
+}
+
 footer {
     height: 80px;
-    position: absolute;
     bottom: 0;
     font-size: .8rem;
 }
 
 .login-top-container {
     height: 73%;
+}
+
+.hamburger {
+    background-color: transparent;
+    border: 0;
+    color: #9F9F9F;
+    cursor: pointer;
+    font-size: 20px;
+    display: none;
+}
+
+.hamburger:focus {
+    outline: none;
+}
+
+@media screen and (max-width: 959px) {
+    .aside-container {
+        width: 40%;
+    }
+
+    .card-group {
+        width: 25%;
+    }
+    
+}
+
+@media screen and (max-width: 703px) {
+    .nav-ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        gap: 0;
+    }
+
+    .nav-ul li a {
+        font-size: 14px !important;
+        min-height: 20px
+    }
+
+    .nav-ul li a:last-child {
+        margin-bottom: 10px
+    }
+
+    nav div {
+        gap: 0 !important;
+    }
+
+    .nav-ul.show {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .aside-container {
+        flex-direction: row;
+        align-items: center;
+        width: 100%
+    }
+
+    .aside-container form {
+        margin: 10px !important;
+    }
+
+    .card-group {
+        width: 40%
+    }
+
+    .cards-container {
+        width: 100%;
+        margin-left: 0 !important;
+    }
 }
