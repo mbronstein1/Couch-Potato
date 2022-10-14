@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
             const browse = await Movie.findOne({where: {id: randId}})
             movies.push(browse.get({plain:true}))
         }
-        res.status(200).render('results', {movies})
+        res.status(200).render('results', {movies, loggedIn: req.session.loggedIn})
         // res.status(200).json(resultArr)
     }
     catch(e) {
@@ -29,7 +29,7 @@ router.get('/:genre', withAuth, async (req, res) => {
             if(genreResultsDB) {
                 const genreResults = genreResultsDB.map((result) => result.get({plain:true}));
                 var movies = genreResults.map(result => ({ value: result, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
-                res.status(200).render('results', {movies})
+                res.status(200).render('results', {movies, loggedIn: req.session.loggedIn})
                 // res.status(200).json(movies)
             }
             else {
