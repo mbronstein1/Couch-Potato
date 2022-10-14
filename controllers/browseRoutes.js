@@ -41,7 +41,5 @@ router.get('/:genre', withAuth, async (req, res) => {
     }
 });
 
-//get search for movie by title with post
-
 
 module.exports = router;
