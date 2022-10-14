@@ -2,14 +2,53 @@
     box-sizing: border-box;
 }
 
-.card-group {
-    margin: 15px;
-}
-
 footer {
     height: 80px;
     bottom: 0;
     font-size: .8rem;
+}
+
+.card-group {
+    margin: 15px;
+}
+
+.login-top-container {
+    justify-content: space-evenly;
+}
+
+.login-signup-cards {
+    height: 425px;
+}
+
+.login-signup-headers {
+    margin-bottom: 50px;
+}
+
+.login-signup-buttons {
+    margin-top: 50px;
+}
+
+.home-page-button {
+    background-color: crimson;
+}
+
+.home-page-button:hover {
+    background-color: crimson;
+    filter: saturate(75%);
+}
+
+.home-page-h2-div {
+    margin: 50px;
+    padding: 30px 20px 20px 20px;
+}
+
+.home-page-h3-div {
+    margin: 40px;
+    padding: 25px 20px 20px 20px;
+}
+
+.home-page-button-div {
+    margin-top: 50px;
 }
 
 .hamburger {
@@ -24,6 +63,7 @@ footer {
 .hamburger:focus {
     outline: none;
 }
+
 
 @media screen and (max-width: 959px) {
     .aside-container {
