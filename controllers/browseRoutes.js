@@ -5,23 +5,43 @@ const router = require('express').Router();
 // route /browse
 router.get('/', async (req, res) => {
     //get 10 random items
-    const resultArr = [];
-    for(let i = 0; i < 10; i++) {
-        let randId = Math.floor(Math.random() * 100) 
-        const browse = await Movie.findOne({where: {id: randId}})
-        resultArr.push(browse.get({plain:true}))
+    try {
+        const resultArr = [];
+        for(let i = 0; i < 10; i++) {
+            let randId = Math.floor((Math.random() * 199) +1) 
+            const browse = await Movie.findOne({where: {id: randId}})
+            resultArr.push(browse.get({plain:true}))
+        }
+        res.status(200).render('results', resultArr)
+        // res.status(200).json(resultArr)
     }
-    // res.status(200).render('results', resultArr)
-    res.status(200).json(resultArr)
+    catch(e) {
+        res.status(500).json({message: "GET random failed."})
+    }
 });
 
 router.get('/:genre', async (req, res) => {
-    const genreResultsDB = await Movie.findAll({
-        where: {Genre: {[Op.like]: `%${req.params.genre}%`}}
-    });
-    const genreResults = genreResultsDB.map((result) => result.get({plain:true}))
-    // res.status(200).render('results', genreResults.get({plain:true}))
-    res.status(200).json(genreResults)
+    try {
+        if(!req.session.loggedIn) {
+            res.render('login')
+        }
+        else{
+            const genreResultsDB = await Movie.findAll({
+                where: {Genre: {[Op.like]: `%${req.params.genre}%`}}
+            });
+            if(genreResultsDB) {
+                const genreResults = genreResultsDB.map((result) => result.get({plain:true}))
+                res.status(200).render('results', genreResults)
+                // res.status(200).json(genreResults)
+            }
+            else {
+                res.status(404).json({message: "No matching results"})
+            }
+        }
+    }
+    catch(e) {
+        res.status(500).json({message: "GET genre failed"})
+    }
 });
 
 //get search for movie by title with post
