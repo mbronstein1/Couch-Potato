@@ -72,4 +72,20 @@ router.post('/logout', (req, res) => {
     }
   });
 
+  router.post('/collection', async (req, res) => {
+    try{
+      if(!req.session.loggedIn) {
+        res.render('login');    
+      }
+      else {
+        const addFavorite = Favorite.create(req.body, {
+  
+        })     
+      }
+    }
+    catch(err) {
+      res.status(400).json(err);
+    }
+  })
+
   module.exports = router;
