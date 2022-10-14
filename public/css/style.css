@@ -2,6 +2,55 @@
     box-sizing: border-box;
 }
 
+/* .background-img {
+    background-image: url(/assets/images/pic1.jpg);
+    background-size: cover;
+} */
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+
+/* video:before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+} */
+.video-wrapper {
+/* Telling our absolute positioned video to 
+be relative to this element */
+position: relative;
+
+/* width: 400px;
+height: 200px; */
+
+/* Will not allow the video to overflow the 
+container */
+overflow: hidden;
+
+/* Centering the container's content vertically 
+and horizontally */
+text-align: center;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.uk-container {
+    max-width: none;
+}
+
 footer {
     height: 80px;
     bottom: 0;
@@ -40,6 +89,10 @@ footer {
 .home-page-h2-div {
     margin: 50px;
     padding: 30px 20px 20px 20px;
+}
+
+.change-color {
+    color: whitesmoke;
 }
 
 .home-page-h3-div {
