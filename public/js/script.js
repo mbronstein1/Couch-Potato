@@ -8,7 +8,7 @@ const movieNameInputEl = document.getElementById('movie-name-input');
 
 //hamburger functionality
 hamburger.addEventListener('click', () => {
-  navUl.classList.toggle('show');  
+  navUl.classList.toggle('show');
 })
 
 //search functionality
@@ -33,24 +33,26 @@ const renderMovieResultsPage = async (e) => {
     movieNameSearchFormEl.removeChild(movieNameSearchFormEl.lastChild)
     let errMessage = document.createElement("p");
     errMessage.classList.add('uk-text-danger')
-    errMessage.textContent = "Please select a genre";
+    errMessage.textContent = "Please select a movie";
     movieNameSearchFormEl.appendChild(errMessage);
   } else {
-    const response = await fetch(`/search/`, {
-      method: 'POST',
-      body: JSON.stringify({
-        title: movieNameInputVal
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (!response.ok) {
-      alert(`${response.status}: ${response.message}`)
-    }
+    window.location.replace(`/search/${movieNameInputVal}`)
   }
 }
+
+// const renderMovieResultsPage = async (e) => {
+//   e.preventDefault();
+//   const movieNameInputVal = movieNameInputEl.value;
+//   if (movieNameInputVal === "") {
+//     movieNameSearchFormEl.removeChild(movieNameSearchFormEl.lastChild)
+//     let errMessage = document.createElement("p");
+//     errMessage.classList.add('uk-text-danger')
+//     errMessage.textContent = "Please select a movie";
+//     movieNameSearchFormEl.appendChild(errMessage);
+//   } else { 
+//     window.location.replace(`/search?`)
+
+
 
 
 movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage)
