@@ -4,3 +4,7 @@ footer {
     bottom: 0;
     font-size: .8rem;
 }
+
+.login-top-container {
+    height: 73%;
+}
