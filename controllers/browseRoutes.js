@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
             const browse = await Movie.findOne({where: {id: randId}})
             movies.push(browse.get({plain:true}))
         }
-        res.status(200).render('results', {movies, loggedIn: req.session.loggedIn})
+        res.status(200).render('browse', {movies, loggedIn: req.session.loggedIn})
         // res.status(200).json(resultArr)
     }
     catch(e) {
