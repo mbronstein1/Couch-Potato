@@ -15,8 +15,18 @@ video {
     height: 100%;
     width: 100%;
     z-index: -1;
-  }
+}
 
+/* video:before {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+} */
 .video-wrapper {
 /* Telling our absolute positioned video to 
 be relative to this element */
@@ -79,6 +89,10 @@ footer {
 .home-page-h2-div {
     margin: 50px;
     padding: 30px 20px 20px 20px;
+}
+
+.change-color {
+    color: whitesmoke;
 }
 
 .home-page-h3-div {
