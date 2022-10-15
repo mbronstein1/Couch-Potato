@@ -4,6 +4,7 @@ const genreSearchFormEl = document.getElementById('genre-search-form');
 const genreInputEl = document.getElementById('genre-input');
 const movieNameSearchFormEl = document.getElementById('movie-search-form');
 const movieNameInputEl = document.getElementById('movie-name-input');
+const collectionBtn = document.getElementById('add-to-collection-btn');
 
 
 //hamburger functionality
@@ -40,11 +41,9 @@ const renderMovieResultsPage = async (e) => {
   }
 }
 
-// const fetchMovies = async () => {
-
-// }
 
 
 
+collectionBtn.addEventListener('click', saveToCollection)
 movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage)
 genreSearchFormEl.addEventListener('submit', renderGenreResultsPage)
