@@ -38,7 +38,10 @@ movieContainerEl.on('click', '.movie-card', function (e) {
     const castText3 = $(target).attr('data-cast-3');
     const castText4 = $(target).attr('data-cast-4');
     $('#cast-container').text("");
-    $('#cast-container').text(castText1 + "add more cast!");
+    $('#cast-container-1').text(castText1);
+    $('#cast-container-2').text(castText2);
+    $('#cast-container-3').text(castText3);
+    $('#cast-container-4').text(castText4);
 
     const runtimeText = $(target).attr('data-runtime');
     $('#runtime-container').text("");
