@@ -4,8 +4,8 @@ const genreSearchFormEl = document.getElementById('genre-search-form');
 const genreInputEl = document.getElementById('genre-input');
 const movieNameSearchFormEl = document.getElementById('movie-search-form');
 const movieNameInputEl = document.getElementById('movie-name-input');
-const collectionBtn = document.getElementById('add-to-collection-btn');
-
+const addCollectionBtn = document.getElementById('add-to-collection-btn');
+const removeCollectionBtn = document.getElementById('remove-from-collection-btn');
 
 //hamburger functionality
 hamburger.addEventListener('click', () => {
@@ -59,6 +59,31 @@ const saveToCollection = async (e) => {
   }
 };
 
-collectionBtn.addEventListener('click', saveToCollection)
-movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage)
-genreSearchFormEl.addEventListener('submit', renderGenreResultsPage)
+const removeFromCollection = async (e) => {
+  e.preventDefault();
+  const movie_id = e.target.getAttribute('data-id');
+  const response = await fetch(`/api/collection/${movie_id}`, {
+    method: 'DELETE'
+  });
+
+  if(response.ok) {
+    window.location.replace('/collection')
+  }
+};
+
+
+if (addCollectionBtn) {
+  addCollectionBtn.addEventListener('click', saveToCollection);
+};
+
+if (removeCollectionBtn) {
+  removeCollectionBtn.addEventListener('click', removeFromCollection)
+};
+
+if(movieNameSearchFormEl) {
+  movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage);
+};
+
+if(genreSearchFormEl) {
+  genreSearchFormEl.addEventListener('submit', renderGenreResultsPage);
+};
