@@ -4,7 +4,7 @@
         <div class="uk-child-width-1-4@m uk-child-width-1-3@s uk-flex uk-margin uk-flex-center uk-flex-wrap uk-flex-wrap-between uk-text-center"
             id="movie-container">
             {{#each movies as |movie|}}
-            {{!-- This builds the card search results --}}
+            {{!-- This builds the card movie collection results --}}
             {{!-- We are storing all of the information that will be displayed on the modal in custom data attributes. These attribute values are retrieved by modal.js scripts --}}
             <div class="uk-card uk-card-default card-group movie-card" data-img="{{movie.Poster_Link}}"
                 data-title="{{movie.Series_Title}}" data-overview="{{movie.Overview}}"
