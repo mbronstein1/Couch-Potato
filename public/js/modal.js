@@ -1,7 +1,7 @@
 // This is the element where event delegation on the cards will occur for search results and my collection
 const movieContainerSearchEl = $('#movie-container-search');
 
-const movieContainerCollectionEl = $('#movie-container-browse');
+const movieContainerCollectionEl = $('#movie-container-collection');
 
 // This is the element where event delegation on the slideshow items will occur for browse slideshow
 const movieSlideshowEl = $('#movie-slideshow');
