@@ -5,17 +5,21 @@
      <section class="uk-container uk-width-1-1 uk-margin-medium-left cards-container uk-margin-bottom uk-margin-top" uk-height-viewport="offset-top:true">        
         <div class="uk-child-width-1-2@m uk-flex uk-flex-column uk-flex-middle uk-flex-center">
             <h1 class="uk-text-center">Suggested Movies For You!</h2>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="ratio: 4:5; animation: push; autoplay:true; autoplay-interval: 3500; pause-on-hover:true">
+            <div class="uk-position-relative uk-visible-toggle uk-light" id="movie-slideshow" tabindex="-1" uk-slideshow="ratio: 4:5; animation: push; autoplay:true; autoplay-interval: 3500; pause-on-hover:true">
 
                 <ul class="uk-slideshow-items">
                     {{#each movies as |movie|}}
                     <li>
-                        <a href="#" data-img="{{movie.Poster_Link}}" data-title="{{movie.Series_Title}}" data-overview="{{movie.Overview}}" data-release="{{movie.Released_Year}}" data-genre="{{movie.Genre}}" data-director="{{movie.Director}}" data-cast1="{{movie.Star1}}" data-cast2="{{movie.Star2}}" data-cast3="{{movie.Star3}}" data-cast4="{{movie.Star4}}" data-runtime="{{movie.Runtime}}" data-rating="{{movie.IMDB_Rating}}" data-id="{{movie.id}}">
-                            <img src="{{movie.Poster_Link}}" alt="" uk-cover>
+                        <div class="slideshow-movie" data-img="{{movie.Poster_Link}}" data-title="{{movie.Series_Title}}"
+                            data-overview="{{movie.Overview}}" data-release="{{movie.Released_Year}}"
+                            data-genre="{{movie.Genre}}" data-director="{{movie.Director}}" data-cast1="{{movie.Star1}}"
+                            data-cast2="{{movie.Star2}}" data-cast3="{{movie.Star3}}" data-cast4="{{movie.Star4}}"
+                            data-runtime="{{movie.Runtime}}" data-rating="{{movie.IMDB_Rating}}" data-id="{{movie.id}}">
+                            <img src="{{movie.Poster_Link}}" onerror="this.src='https://dummyimage.com/200x300/D3D3D3/000000.jpg&text=Image+not+found'" alt="" uk-cover>
                             <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
                                 <h3 class="uk-margin-remove">{{movie.Series_Title}}</h3>
                             </div>
-                        </a>
+                        </div>
                     </li>
                     {{/each}}
                 </ul>
@@ -26,4 +30,69 @@
             </div>
         </div>
     </section>
+
+    {{!-- This is the modal element --}}
+    <div>
+        <div id="movie-modal" uk-modal>
+            <div class="uk-modal-dialog">
+                {{!-- Close button --}}
+                <button class="uk-modal-close-default" type="button" uk-close></button>
+                {{!-- All of the remaining modal elements are wrapped in divs to allow for easier text placement --}}
+                {{!-- The below header-div is outside of the uk-overflow-auto element so that it does not scroll --}}
+                <div class="header-div uk-modal-header uk-flex uk-flex-center uk-flex-column uk-text-center uk-padding">
+                    <h2 class="uk-modal-title" id="modal-title"></h2>
+                    <p id="modal-release-date"></p>
+                </div>
+                {{!-- Everything wrapped in this uk-overflow-auto element will scroll. Therefore the modal will always stay within the viewport on all devices --}}
+                <div class="uk-modal-body" uk-overflow-auto>
+                    {{!-- Poster div --}}
+                    <div class="poster-div uk-flex uk-flex-center uk-child-width-1-2 uk-margin uk-margin-medium-bottom">
+                        <img id="movie-poster" onerror="this.src='https://dummyimage.com/200x300/D3D3D3/000000.jpg&text=Image+not+found'">
+                    </div>
+                    {{!-- Overview div --}}
+                    <div class="overview-div uk-flex uk-child-width-1-2 uk-margin" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Overview:</p>
+                        <p id="overview-text-container" class="uk-width-3-5"></p>
+                    </div>
+                    {{!-- Genre div --}}
+                    <div class="genre-div uk-flex uk-margin" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Genre:</p>
+                        <p id="genre-container" class="uk-width-3-5"></p>
+                    </div>
+                    {{!-- Director div --}}
+                    <div class="director-div uk-flex" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Director:</p>
+                        <p id="director-container" class="uk-width-3-5"></p>
+                    </div>
+                    {{!-- Cast div --}}
+                    <div class="cast-div uk-flex" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Cast:</p>
+                        <div class="uk-width-3-5">
+                            <p id="cast-container-1"></p>
+                            <p id="cast-container-2"></p>
+                            <p id="cast-container-3"></p>
+                            <p id="cast-container-4"></p>
+                        </div>
+                    </div>
+                    {{!-- Runtime div --}}
+                    <div class="runtime-div uk-flex" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Runtime:</p>
+                        <p id="runtime-container" class="uk-width-3-5"></p>
+                    </div>
+                    {{!-- Rating div --}}
+                    <div class="rating-div uk-flex" uk-grid>
+                        <p class="uk-text-left uk-width-2-5">Rating:</p>
+                        <p id="rating-container" class="uk-width-3-5"></p>
+                    </div>
+                </div>
+                {{!-- Button div is outside of the uk-overflow-auto element so that it remain present and does not scroll --}}
+                <div class="button-div uk-flex uk-flex-center uk-margin-bottom uk-padding-small">
+                    <button class="uk-button uk-button-primary" id="add-to-collection-btn">Add to My Collection</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
+
+{{!-- Necessary JavaScript for the modal functionality --}}
+<script src="/js/modal.js"></script>
