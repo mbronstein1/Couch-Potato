@@ -127,4 +127,9 @@ movieSlideshowEl.on('click', '.slideshow-movie', function (e) {
     const rating = $(target).attr('data-rating');
     $('#rating-container').text("");
     $('#rating-container').text(rating);
+
+    const movieId = $(target).attr('data-id');
+    $('#add-to-collection-btn').attr('data-id', movieId);
+    $('#add-to-collection-btn').removeAttr("disabled");
+    $('#add-to-collection-btn').text('ADD TO MY COLLECTION')
 })

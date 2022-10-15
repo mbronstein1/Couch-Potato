@@ -41,7 +41,23 @@ const renderMovieResultsPage = async (e) => {
   }
 }
 
+const saveToCollection = async (e) => {
+  e.preventDefault();
+  const movie_id = e.target.getAttribute('data-id')
+  console.log(movie_id)
+  const response = await fetch('/api/users/collection', {
+    method: 'POST',
+    body: JSON.stringify({
+      movie_id
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
+  if (response.ok) {
+    e.target.setAttribute('disabled', '');
+    e.target.textContent = "Saved to your collection"
+  }
+}
 
 
 collectionBtn.addEventListener('click', saveToCollection)
