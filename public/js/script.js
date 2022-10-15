@@ -4,7 +4,8 @@ const genreSearchFormEl = document.getElementById('genre-search-form');
 const genreInputEl = document.getElementById('genre-input');
 const movieNameSearchFormEl = document.getElementById('movie-search-form');
 const movieNameInputEl = document.getElementById('movie-name-input');
-
+const addCollectionBtn = document.getElementById('add-to-collection-btn');
+const removeCollectionBtn = document.getElementById('remove-from-collection-btn');
 
 //hamburger functionality
 hamburger.addEventListener('click', () => {
@@ -40,11 +41,49 @@ const renderMovieResultsPage = async (e) => {
   }
 }
 
-// const fetchMovies = async () => {
+const saveToCollection = async (e) => {
+  e.preventDefault();
+  const movie_id = e.target.getAttribute('data-id')
+  console.log(movie_id)
+  const response = await fetch('/api/collection', {
+    method: 'POST',
+    body: JSON.stringify({
+      movie_id
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-// }
+  if (response.ok) {
+    e.target.setAttribute('disabled', '');
+    e.target.textContent = "Saved to your collection"
+  }
+};
+
+const removeFromCollection = async (e) => {
+  e.preventDefault();
+  const movie_id = e.target.getAttribute('data-id');
+  const response = await fetch(`/api/collection/${movie_id}`, {
+    method: 'DELETE'
+  });
+
+  if(response.ok) {
+    window.location.replace('/collection')
+  }
+};
 
 
+if (addCollectionBtn) {
+  addCollectionBtn.addEventListener('click', saveToCollection);
+};
 
-movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage)
-genreSearchFormEl.addEventListener('submit', renderGenreResultsPage)
+if (removeCollectionBtn) {
+  removeCollectionBtn.addEventListener('click', removeFromCollection)
+};
+
+if(movieNameSearchFormEl) {
+  movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage);
+};
+
+if(genreSearchFormEl) {
+  genreSearchFormEl.addEventListener('submit', renderGenreResultsPage);
+};

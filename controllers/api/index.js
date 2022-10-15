@@ -7,6 +7,6 @@ router.get('/', (req, res) => {
 });
 
 router.use('/users', userRoutes);
-router.use('/collection', userRoutes);
+router.use('/collection', collectionRoutes);
 
 module.exports = router;

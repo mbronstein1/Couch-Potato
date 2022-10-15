@@ -31,7 +31,7 @@ router.get('/collection', withAuth, async (req, res) => {
             }]
         });
         const movies = dbUserData.movies.map(data => data.get({ plain: true }));
-        res.status(200).render('collection', { movies });
+        res.status(200).render('collection', { movies, loggedIn: req.session.loggedIn });
     }
     catch (err) {
         res.status(400).json(err);
@@ -57,7 +57,7 @@ router.get('/search/:title', withAuth, async (req, res) => {
             }
             else {
                 const movies = searchResult.map(result => result.get({ plain: true }))
-                res.status(200).render('results', { movies })
+                res.status(200).render('results', { movies, loggedIn: req.session.loggedIn })
             }
         }
     }
