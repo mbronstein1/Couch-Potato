@@ -15,7 +15,7 @@
                             data-genre="{{movie.Genre}}" data-director="{{movie.Director}}" data-cast1="{{movie.Star1}}"
                             data-cast2="{{movie.Star2}}" data-cast3="{{movie.Star3}}" data-cast4="{{movie.Star4}}"
                             data-runtime="{{movie.Runtime}}" data-rating="{{movie.IMDB_Rating}}" data-id="{{movie.id}}">
-                            <img src="{{movie.Poster_Link}}" alt="" uk-cover>
+                            <img src="{{movie.Poster_Link}}" onerror="this.src='https://dummyimage.com/200x300/D3D3D3/000000.jpg&text=Image+not+found'" alt="" uk-cover>
                             <div class="uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
                                 <h3 class="uk-margin-remove">{{movie.Series_Title}}</h3>
                             </div>
@@ -47,7 +47,7 @@
                 <div class="uk-modal-body" uk-overflow-auto>
                     {{!-- Poster div --}}
                     <div class="poster-div uk-flex uk-flex-center uk-child-width-1-2 uk-margin uk-margin-medium-bottom">
-                        <img id="movie-poster">
+                        <img id="movie-poster" onerror="this.src='https://dummyimage.com/200x300/D3D3D3/000000.jpg&text=Image+not+found'">
                     </div>
                     {{!-- Overview div --}}
                     <div class="overview-div uk-flex uk-child-width-1-2 uk-margin" uk-grid>

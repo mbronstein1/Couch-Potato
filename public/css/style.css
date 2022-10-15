@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+header {
+    height: 120px;
+}
+
 /* .background-img {
     background-image: url(/assets/images/pic1.jpg);
     background-size: cover;
@@ -14,19 +18,9 @@ video {
     object-fit: cover;
     height: 100%;
     width: 100%;
-    z-index: -1;
+    z-index: -2;
 }
 
-/* video:before {
-    content: '';
-    position: absolute;
-    background: rgba(0, 0, 0, 0);
-    border-radius: 5px;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-} */
 .video-wrapper {
 /* Telling our absolute positioned video to 
 be relative to this element */
@@ -45,6 +39,18 @@ text-align: center;
 display: flex;
 align-items: center;
 justify-content: center;
+}
+
+/* Adding overlay to background video so text can be read easier */
+.video-wrapper .overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    background: black;
+    opacity: .5;
 }
 
 .uk-container {
