@@ -45,7 +45,7 @@ const saveToCollection = async (e) => {
   e.preventDefault();
   const movie_id = e.target.getAttribute('data-id')
   console.log(movie_id)
-  const response = await fetch('/api/users/collection', {
+  const response = await fetch('/api/collection', {
     method: 'POST',
     body: JSON.stringify({
       movie_id
