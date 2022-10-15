@@ -72,22 +72,4 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.post('/collection', async (req, res) => {
-  try {
-    if (!req.session.loggedIn) {
-      res.render('login');
-    }
-    else {
-      const addFavorite = await Favorite.create({
-        user_id: req.session.user_id,
-        movie_id: req.body.movie_id,
-      });
-      res.status(200).json(addFavorite);
-    }
-  }
-  catch (err) {
-    res.status(400).json(err);
-  }
-});
-
 module.exports = router;
