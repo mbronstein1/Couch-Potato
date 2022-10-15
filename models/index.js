@@ -7,7 +7,7 @@ User.belongsToMany(Movie, {
         model: Favorite,
         unique: false
     },
-    as: 'favorite_movies'
+    as: 'movies'
 });
 
 Movie.belongsToMany(User, {
@@ -15,7 +15,7 @@ Movie.belongsToMany(User, {
         model: Favorite,
         unique: false
     },
-    as: 'favorite_movies'
+    as: 'movies'
 });
 
 module.exports = {User, Favorite, Movie}
