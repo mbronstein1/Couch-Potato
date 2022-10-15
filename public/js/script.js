@@ -57,8 +57,7 @@ const saveToCollection = async (e) => {
     e.target.setAttribute('disabled', '');
     e.target.textContent = "Saved to your collection"
   }
-}
-
+};
 
 collectionBtn.addEventListener('click', saveToCollection)
 movieNameSearchFormEl.addEventListener('submit', renderMovieResultsPage)
