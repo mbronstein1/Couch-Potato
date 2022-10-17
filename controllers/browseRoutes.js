@@ -29,7 +29,7 @@ router.get('/:genre', withAuth, async (req, res) => {
             if(genreResultsDB) {
                 const genreResults = genreResultsDB.map((result) => result.get({plain:true}));
                 var movies = genreResults.map(result => ({ value: result, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
-                res.status(200).render('results', {movies, loggedIn: req.session.loggedIn})
+                res.status(200).render('results', {movies, loggedIn: req.session.loggedIn, searchTerm: req.params.genre})
                 // res.status(200).json(movies)
             }
             else {

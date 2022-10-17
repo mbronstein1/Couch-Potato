@@ -53,11 +53,11 @@ router.get('/search/:title', withAuth, async (req, res) => {
                 }
             )
             if (searchResult[0] == null) {
-                res.status(404).json({ message: `No results found matching ${formattedTitle}` })
+                res.status(404).render('results', { message: `No results found matching ${formattedTitle}` })
             }
             else {
                 const movies = searchResult.map(result => result.get({ plain: true }))
-                res.status(200).render('results', { movies, loggedIn: req.session.loggedIn })
+                res.status(200).render('results', { movies, loggedIn: req.session.loggedIn, searchTerm: req.params.title })
             }
         }
     }

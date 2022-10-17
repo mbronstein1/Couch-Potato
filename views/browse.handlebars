@@ -87,7 +87,11 @@
                 </div>
                 {{!-- Button div is outside of the uk-overflow-auto element so that it remain present and does not scroll --}}
                 <div class="button-div uk-flex uk-flex-center uk-margin-bottom uk-padding-small">
+                    {{#if loggedIn}}
                     <button class="uk-button uk-button-primary" id="add-to-collection-btn">Add to My Collection</button>
+                    {{else}}
+                    <button class="uk-button uk-button-primary" id="modal-redirect-btn">Log in to add to collection</button>
+                    {{/if}}
                 </div>
             </div>
         </div>
