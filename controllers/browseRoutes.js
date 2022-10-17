@@ -21,6 +21,7 @@ router.get('/', async (req, res) => {
     }
 });
 
+//search by genre and return 10 random results
 router.get('/:genre', withAuth, async (req, res) => {
     try {
             const genreResultsDB = await Movie.findAll({
@@ -30,7 +31,6 @@ router.get('/:genre', withAuth, async (req, res) => {
                 const genreResults = genreResultsDB.map((result) => result.get({plain:true}));
                 var movies = genreResults.map(result => ({ value: result, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value).slice(0, 10);
                 res.status(200).render('results', {movies, loggedIn: req.session.loggedIn, searchTerm: req.params.genre})
-                // res.status(200).json(movies)
             }
             else {
                 res.status(404).json({message: "No matching results"})
