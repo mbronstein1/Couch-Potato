@@ -4,16 +4,19 @@ const withAuth = require('../utils/auth');
 const formatTitle = require('../utils/format');
 const router = require('express').Router();
 
+//home screen
 router.get('/', (req, res) => {
     res.render('home', { loggedIn: req.session.loggedIn })
 });
 
+//login screen
 router.get('/login', async (req, res) => {
     res.render('login', {
         loggedIn: req.session.loggedIn
     })
 });
 
+//users collection
 router.get('/collection', withAuth, async (req, res) => {
     try {
         const dbUserData = await User.findOne({
@@ -38,12 +41,14 @@ router.get('/collection', withAuth, async (req, res) => {
     }
 });
 
+//search by title
 router.get('/search/:title', withAuth, async (req, res) => {
     try {
         if (!req.params.title) {
-            res.status(429).json({ message: "Request must include title" })
+            res.status(400).json({ message: "Request must include title" })
         }
         else {
+            //format user input title to match data imported to database
             const formattedTitle = formatTitle(req.params.title);
             const searchResult = await Movie.findAll(
                 {
@@ -57,7 +62,7 @@ router.get('/search/:title', withAuth, async (req, res) => {
             }
             else {
                 const movies = searchResult.map(result => result.get({ plain: true }))
-                res.status(200).render('results', { movies, loggedIn: req.session.loggedIn })
+                res.status(200).render('results', { movies, loggedIn: req.session.loggedIn, searchTerm: req.params.title })
             }
         }
     }
