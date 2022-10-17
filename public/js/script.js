@@ -1,3 +1,4 @@
+// importing html elements
 const hamburger = document.getElementById('hamburger');
 const navUl = document.getElementById('nav-ul');
 const genreSearchFormEl = document.getElementById('genre-search-form');
