@@ -34,9 +34,9 @@
                 <button class="uk-modal-close-default" type="button" uk-close></button>
                 {{!-- All of the remaining modal elements are wrapped in divs to allow for easier text placement --}}
                 {{!-- The below header-div is outside of the uk-overflow-auto element so that it does not scroll --}}
-                <div class="header-div uk-modal-header uk-flex uk-flex-center uk-flex-column uk-text-center uk-padding">
-                    <h2 class="uk-modal-title" id="modal-title"></h2>
-                    <p id="modal-release-date"></p>
+                <div class="header-div uk-modal-header uk-flex uk-flex-center uk-flex-column uk-text-center">
+                    <h2 class="uk-modal-title uk-margin-remove-bottom" id="modal-title"></h2>
+                    <p id="modal-release-date" class="uk-margin-remove-top"></p>
                 </div>
                 {{!-- Everything wrapped in this uk-overflow-auto element will scroll. Therefore the modal will always stay within the viewport on all devices --}}
                 <div class="uk-modal-body" uk-overflow-auto>
