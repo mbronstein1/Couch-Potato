@@ -10,13 +10,13 @@
 
 ## Description
 
-In the wide world on online streaming services, it can become a daunting task to figure out which site to choose in order to browse and find new movies to watch. As you go from service to service, your favorite movies are also only stored on those individual websites. With the Couch Potato app, we seek to bridge that gap by allowing you to browse and extensive movie catalog and save a collection of your favorite movies all on one site. 
+In the wide world of online streaming services, it can become a daunting task to figure out which site to choose in order to browse and find new movies to watch. As you go from service to service, your favorite movies are also only stored on those individual websites. With the Couch Potato app, we seek to bridge that gap by allowing you to browse an extensive movie catalog and save a collection of your favorite movies all on one site. 
 
 We wanted to make sure that our movie catalog is always available for users, so we created our own movie database to populate the app by importing a dataset instead of relying on a third-party API data stream. You can browse movies by genre, movie title, or by looking through our randomized slideshow to help expand your horizons. When you click on a movie you are shown a variety of information that will help you decide what to watch during your next couch potato session. 
 
 Now if you want to find a new movie or revisit a classic, you only need to start in one place, and that is the Couch Potato app!
 
-In this project we learned the importance of dividing team focus between the front-end and back-end and collaborating between those areas to deliver functionality quickly and reliably. We utilzed MySQL Workbench in order to import our dataset to create a seamless integration with our JS models. With the help of many Node packages such as express, sequelize, and handlebars, we were able to serve up customize HTML templates based on search criteria.
+In this project we learned the importance of dividing team focus between the front-end and back-end and collaborating between those areas to deliver functionality quickly and reliably. We utilzed MySQL Workbench in order to import our dataset to create a seamless integration with our JS models. With the help of many Node packages such as express, sequelize, and handlebars, we were able to serve up customized HTML templates based on search criteria.
 
 ## Installation
 
