@@ -13,7 +13,6 @@ router.post('/', async (req, res) => {
     });
 
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -21,12 +20,14 @@ router.post('/', async (req, res) => {
 // Login
 router.post('/login', async (req, res) => {
   try {
+    //search if email is existing user
     const dbUserData = await User.findOne({
       where: {
         email: req.body.email,
       },
     });
 
+    //email doesn't exist
     if (!dbUserData) {
       res
         .status(400)
@@ -36,6 +37,7 @@ router.post('/login', async (req, res) => {
 
     const validPassword = await dbUserData.checkPassword(req.body.password);
 
+    //password doesn't match
     if (!validPassword) {
       res
         .status(400)
@@ -43,6 +45,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    //save loggedIn and user_id to session
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user_id = dbUserData.id;
@@ -56,7 +59,6 @@ router.post('/login', async (req, res) => {
         .json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
-    console.log(err);
     res.status(500).json(err);
   }
 });
