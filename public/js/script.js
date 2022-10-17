@@ -6,13 +6,15 @@ const movieNameSearchFormEl = document.getElementById('movie-search-form');
 const movieNameInputEl = document.getElementById('movie-name-input');
 const addCollectionBtn = document.getElementById('add-to-collection-btn');
 const removeCollectionBtn = document.getElementById('remove-from-collection-btn');
+const resultsTextEl = document.getElementById('results-text');
+const modalRedirectBtn = document.getElementById('modal-redirect-btn');
 
 //hamburger functionality
 hamburger.addEventListener('click', () => {
   navUl.classList.toggle('show');
 })
 
-//search functionality
+//search functionality for genre
 const renderGenreResultsPage = (e) => {
   e.preventDefault();
   const genreInputVal = genreInputEl.value;
@@ -23,10 +25,12 @@ const renderGenreResultsPage = (e) => {
     errMessage.textContent = "Please select a genre";
     genreSearchFormEl.appendChild(errMessage);
   } else {
-    window.location.replace(`/browse/${genreInputVal}`)
+    window.location.replace(`/browse/${genreInputVal}`);
+    appendResultHeader();
   }
 };
 
+//search functionality for movie name
 const renderMovieResultsPage = async (e) => {
   e.preventDefault();
   const movieNameInputVal = movieNameInputEl.value;
@@ -37,10 +41,12 @@ const renderMovieResultsPage = async (e) => {
     errMessage.textContent = "Please select a movie";
     movieNameSearchFormEl.appendChild(errMessage);
   } else {
-    window.location.replace(`/search/${movieNameInputVal}`)
+    window.location.replace(`/search/${movieNameInputVal}`);
+    appendResultHeader();
   }
 }
 
+//Save a movie to collection
 const saveToCollection = async (e) => {
   e.preventDefault();
   const movie_id = e.target.getAttribute('data-id')
@@ -59,6 +65,7 @@ const saveToCollection = async (e) => {
   }
 };
 
+//Remove a movie from collection
 const removeFromCollection = async (e) => {
   e.preventDefault();
   const movie_id = e.target.getAttribute('data-id');
@@ -67,11 +74,11 @@ const removeFromCollection = async (e) => {
   });
 
   if(response.ok) {
-    window.location.replace('/collection')
+    window.location.replace('/collection');
   }
 };
 
-
+//Only loading event listener if id exists on the screen
 if (addCollectionBtn) {
   addCollectionBtn.addEventListener('click', saveToCollection);
 };
@@ -86,4 +93,12 @@ if(movieNameSearchFormEl) {
 
 if(genreSearchFormEl) {
   genreSearchFormEl.addEventListener('submit', renderGenreResultsPage);
+};
+
+//Redirect to login page
+if(modalRedirectBtn) {
+  modalRedirectBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.replace('/login')
+  })
 };
