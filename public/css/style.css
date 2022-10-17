@@ -2,10 +2,6 @@
     box-sizing: border-box;
 }
 
-header {
-    height: 120px;
-}
-
 video {
     /* properties to make the video fill in the entire div */
     position: absolute;

@@ -1,3 +1,6 @@
+const loginFormEl = document.querySelector('.login-form');
+const signupFormEl = document.querySelector('.signup-form')
+
 // Login form logic
 const loginFormHandler = async (event) => {
   event.preventDefault();
@@ -18,7 +21,11 @@ const loginFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      loginFormEl.removeChild(loginFormEl.lastChild)
+      let errMessage = document.createElement("p");
+      errMessage.classList.add('uk-text-danger')
+      errMessage.textContent = "Incorrect email or password. Please try again! ";
+      loginFormEl.appendChild(errMessage);
     }
   }
 };
@@ -43,7 +50,11 @@ const signupFormHandler = async (event) => {
       // If successful, redirect the browser to the profile page
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      signupFormEl.removeChild(signupFormEl.lastChild)
+      let errMessage = document.createElement("p");
+      errMessage.classList.add('uk-text-danger');
+      errMessage.innerText = `Email must be a valid email\nPassword must be at least 8 characters`;
+      signupFormEl.appendChild(errMessage);
     }
   }
 };
