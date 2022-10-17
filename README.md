@@ -39,6 +39,10 @@ If you are not logged in, your functionality is limited to perusing the browse p
 
 If you wish to get full access to the site, click the Login link in the navigation bar. You will also be redirected to the Login page if you try to perform an action limited to registered users such as viewing the My Collection page, attempting to save a movie to your collection, or performing a customized genre or movie title search. 
 
+You can use the following test user to log in:
+- email: test5@test.com
+- password: 12345678
+
 ![GIF of logging in](./assets/Login%20gif.gif)
 
 When you are logged in you can perform a custom search on the Browse page by using the search forms on the left side of the page. You can use one criteria in a search. Your search results are populated in the space to the right.
