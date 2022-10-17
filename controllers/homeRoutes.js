@@ -20,14 +20,17 @@ router.get('/login', async (req, res) => {
 router.get('/collection', withAuth, async (req, res) => {
     try {
         const dbUserData = await User.findOne({
+            //does not send back the password and email of user
             attributes: {
                 exclude: ['password', 'email']
             },
             where: {
                 id: req.session.user_id
             },
+            //includes the movie table so we have access to the information from the columns needed to display
             include: [{
                 model: Movie, through: Favorite, as: 'movies',
+                //excludes column information from movie table that are not in use
                 attributes: {
                     exclude: ['Certificate', 'Meta_score', 'No_of_Votes', 'Gross']
                 }
@@ -57,6 +60,7 @@ router.get('/search/:title', withAuth, async (req, res) => {
                     }
                 }
             )
+            //returns a message to display on results page if no movie found in database with searched title
             if (searchResult[0] == null) {
                 res.status(404).render('results', { message: `No results found matching ${formattedTitle}` })
             }
