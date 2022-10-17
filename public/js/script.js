@@ -7,7 +7,6 @@ const movieNameSearchFormEl = document.getElementById('movie-search-form');
 const movieNameInputEl = document.getElementById('movie-name-input');
 const addCollectionBtn = document.getElementById('add-to-collection-btn');
 const removeCollectionBtn = document.getElementById('remove-from-collection-btn');
-const resultsTextEl = document.getElementById('results-text');
 const modalRedirectBtn = document.getElementById('modal-redirect-btn');
 
 //hamburger functionality
@@ -27,7 +26,6 @@ const renderGenreResultsPage = (e) => {
     genreSearchFormEl.appendChild(errMessage);
   } else {
     window.location.replace(`/browse/${genreInputVal}`);
-    appendResultHeader();
   }
 };
 
@@ -43,7 +41,6 @@ const renderMovieResultsPage = async (e) => {
     movieNameSearchFormEl.appendChild(errMessage);
   } else {
     window.location.replace(`/search/${movieNameInputVal}`);
-    appendResultHeader();
   }
 }
 
@@ -51,7 +48,6 @@ const renderMovieResultsPage = async (e) => {
 const saveToCollection = async (e) => {
   e.preventDefault();
   const movie_id = e.target.getAttribute('data-id')
-  console.log(movie_id)
   const response = await fetch('/api/collection', {
     method: 'POST',
     body: JSON.stringify({
