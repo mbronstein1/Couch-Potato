@@ -1,3 +1,4 @@
+{{!-- The main handlebars layout. This appears on every handlebars page loaded by our routes. --}}
 <html>
 
 <head>
@@ -14,17 +15,21 @@
     <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.10/dist/js/uikit-icons.min.js"></script>
+    {{!-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.1.js"
         integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <title>Couch Potato</title>
     <link rel="icon" type="image/x-icon" href="/assets/images/food.svg">
 </head>
 
+{{!-- The expand: true value on the uk-height-viewport class makes the body stretch the whole viewport --}}
+
 <body uk-height-viewport="expand: true" class="uk-flex-column uk-flex-between">
     <!-- Header -->
     <header class="uk-flex uk-flex-middle  uk-background-muted uk-width-1-1">
-        <h1 class="uk-padding uk-margin-auto-right uk-flex">C<img src="/assets/images/food.svg" width="40px" alt="">uch Potato</h1>
-
+        <h1 class="uk-padding uk-margin-auto-right uk-flex"> <a href="/"
+                class="uk-text-decoration-none uk-text-secondary">C<img src="/assets/images/food.svg" width="40px"
+                    alt="">uch Potato </a> </h1>
         <!-- Navbar -->
         <nav class="uk-navbar-container uk-navbar-transparent uk-margin-auto-top" uk-navbar>
             <div class="uk-navbar-right uk-padding uk-padding-remove-bottom uk-flex uk-flex-wrap uk-flex-right">
@@ -34,6 +39,7 @@
                 <ul class="uk-navbar-nav nav-ul" id="nav-ul">
                     <li><a href="/">Home</a></li>
                     <li><a href="/browse">Browse</a></li>
+                    {{!-- This if block will show the login button if the user is not logged in and the logout button if the user is logged in --}}
                     {{#if loggedIn}}
                     <li id="logout"><a href="#">Logout</a></li>
                     {{else}}
@@ -48,6 +54,7 @@
     <!-- Main section -->
     {{{body}}}
 
+    {{!-- Footer --}}
     <footer class="uk-padding uk-flex uk-flex-right uk-flex-middle uk-background-muted uk-width-1-1">
         Created by Matthew Bronstein, David Byrd, Brendon Jiang, and Jared Johnson
     </footer>

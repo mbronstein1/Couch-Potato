@@ -1,15 +1,18 @@
+{{!-- This is the template for the browse routes. This is different from the results.handlebars because we are using a slideshow on for the browse page. --}}
 <main class="uk-flex uk-container uk-margin-left uk-margin-top main-container">
-
+        {{!-- This brings up the search-aside partial, allowing users to search by genre or movie title --}}
         {{> search-aside}} 
         
      <section class="uk-container uk-width-1-1 uk-margin-medium-left cards-container uk-margin-bottom uk-margin-top" uk-height-viewport="offset-top:true">        
         <div class="uk-child-width-1-2@m uk-flex uk-flex-column uk-flex-middle uk-flex-center">
             <h1 class="uk-text-center">Suggested Movies For You!</h2>
+            {{!-- This div creates the slideshow --}}
             <div class="uk-position-relative uk-visible-toggle uk-light" id="movie-slideshow" tabindex="-1" uk-slideshow="ratio: 4:5; animation: push; autoplay:true; autoplay-interval: 3500; pause-on-hover:true">
 
                 <ul class="uk-slideshow-items">
                     {{#each movies as |movie|}}
                     <li>
+                        {{!-- All of the information needed by the modal is stored in custom data attributes --}}
                         <div class="slideshow-movie" data-img="{{movie.Poster_Link}}" data-title="{{movie.Series_Title}}"
                             data-overview="{{movie.Overview}}" data-release="{{movie.Released_Year}}"
                             data-genre="{{movie.Genre}}" data-director="{{movie.Director}}" data-cast-1="{{movie.Star1}}"
