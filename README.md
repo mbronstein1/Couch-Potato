@@ -37,15 +37,15 @@ When the app is deployed you will begin on the home page. Here you can see the n
 
 If you are not logged in, your functionality is limited to perusing the browse page slideshow and viewing a variety of movie details when you click a movie image.
 
-If you wish to get full access to the site, click the Login link in the navigation bar. You will also be redireted to the Login page if you try to perform an action limited to registered users such as viewing the My Collection page, attempting to save a movie to you collection, or performing a customized genre or movie title search. 
+If you wish to get full access to the site, click the Login link in the navigation bar. You will also be redirected to the Login page if you try to perform an action limited to registered users such as viewing the My Collection page, attempting to save a movie to your collection, or performing a customized genre or movie title search. 
 
 ![GIF of logging in](./assets/Login%20gif.gif)
 
-When you are logged in you can perform a custom search on the Browse page by using the search forms on the left side of the page. You can use one criteria in a search. You search results are populated in the space to the right.
+When you are logged in you can perform a custom search on the Browse page by using the search forms on the left side of the page. You can use one criteria in a search. Your search results are populated in the space to the right.
 
 ![GIF of genre search](./assets/Genre%20search%20gif.gif)
 
-When the search results appear, clicking on a result will launch the movie details modal. A variety of details are present to help inform you about the movie. Click the Save to My Collection button at the bottom of the modal to save the movie to your favorites.
+When the search results appear, clicking on a result will launch the movie details modal. A variety of details are present to help inform you about the movie. Click the Save to My Collection button at the bottom of the modal to save the movie to your collection.
 
 ![GIF of search result and save to collection](./assets/Save%20to%20favorites.gif)
 
@@ -53,7 +53,7 @@ To view your collection, head over to the My Collection page via the navigation 
 
 ![GIF of My Collection page and removing from collection](./assets/Collection.gif)
 
-When you are all dont with your session, logout by clicking the Logout button in the navigation bar. Your collection will remain intact on your next visit. Enjoy!
+When you are all done with your session, logout by clicking the Logout button in the navigation bar. Your collection will remain intact on your next visit. Enjoy!
 
 ![GIF of logging out](./assets/Logout.gif)
 
