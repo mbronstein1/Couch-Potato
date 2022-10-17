@@ -22,11 +22,12 @@ In this project we learned the importance of dividing team focus between the fro
 
 In order to use our app, simply go to the following link: https://infinite-river-93616.herokuapp.com/
 
-If by any chance you wish to deploy this app on your local machine, use the following steps (you must have MySQL and Node.js installed on your machine):
+If by any chance you wish to deploy this app on your local machine, use the following steps (you must have MySQL, Node.js, and MySQL workbench installed on your machine):
 - Clone this repo to your machine
 - Install all dependencies
 - In MySQL source the db schema file
-- Start the app using `npm start` or a similar command
+- Use MySQL workbench to import csv to movies table
+- Start the app using `npm run start` or a similar command
 
 ## Usage
 
