@@ -78,23 +78,6 @@ const removeFromCollection = async (e) => {
   }
 };
 
-//Append search result type to page
-const appendResultHeader = () => {
-  const resultString = window.location.pathname.split("/")[2];
-  // if (resultString.includes("%20")) {
-  //   resultString.replace(/%20/g, " ");
-    console.log(resultString)
-    // const resultHeader = document.createElement = ("h2");
-    // resultHeader.textContent = (`Search results for ${resultString}`);
-    // resultsTextEl.appendChild(resultHeader)
-  // } else {
-  //   const resultHeader = document.createElement = ("h2");
-  //   resultHeader.textContent = (`Search results for ${resultString}`);
-  //   resultsTextEl.appendChild(resultHeader)
-  // }
-// }
-}
-
 //Only loading event listener if id exists on the screen
 if (addCollectionBtn) {
   addCollectionBtn.addEventListener('click', saveToCollection);
