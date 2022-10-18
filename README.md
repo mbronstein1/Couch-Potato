@@ -68,7 +68,7 @@ Brought to you by the following certified couch potatoes:
 
 - Matthew Bronstein: [mbronstein1](https://github.com/mbronstein1)
 - David Byrd: [methyl8](https://github.com/methyl8)
-- Brendan Jiang: [JBrendon15](https://github.com/JBrendon15)
+- Brendon Jiang: [JBrendon15](https://github.com/JBrendon15)
 - Jared Johnson: [nolacoder](https://github.com/nolacoder)
 
 ## License
